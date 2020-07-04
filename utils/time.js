@@ -1,0 +1,7 @@
+const CINCO_MINUTOS = 300;
+const SESENTA_MINUTOS = 3600;
+
+module.exports = {
+  CINCO_MINUTOS,
+  SESENTA_MINUTOS
+}

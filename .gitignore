@@ -182,6 +182,5 @@ $RECYCLE.BIN/
 
 # dotenvenvironmentvariablesfile
 .env
-.env.example
 
 # End of https://www.toptal.com/developers/gitignore/api/node,linux,windows,macos

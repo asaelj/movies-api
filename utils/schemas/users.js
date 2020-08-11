@@ -4,14 +4,24 @@ const userIdSchema = joi.object({
   userId: joi.string().regex(/^[0-9a-fA-F]{24}$/)
 });
 
-const createUserSchema = joi.object({
+const userSchema = joi.object({
   name: joi.string().max(100).required(),
   email: joi.string().email().required(),
-  password: joi.string().required(),
+  password: joi.string().required()
+});
+
+const createUserSchema = joi.object({
+  userSchema,
   isAdmin: joi.boolean()
+});
+
+const createProviderUserSchema = joi.object({
+  userSchema,
+  apiKeyToken: joi.string().required()
 });
 
 module.exports = {
   userIdSchema,
-  createUserSchema
+  createUserSchema,
+  createProviderUserSchema
 }

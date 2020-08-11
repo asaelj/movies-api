@@ -20,7 +20,7 @@ function userMoviesApi(app) {
   router.get('/',
     passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['read:user-movies']),
-    validationHandler({ userId: userIdSchema }, 'query'),
+    validationHandler(userIdSchema, 'query'),
     async function (req, res, next) {
       const { userId } = req.query;
 
@@ -60,12 +60,12 @@ function userMoviesApi(app) {
   router.delete('/:userMovieId',
     passport.authenticate('jwt', { session: false }),
     scopesValidationHandler(['delete:user-movies']),
-    validationHandler({ userMovieId: movieIdSchema }, 'params'),
+    validationHandler(movieIdSchema, 'params'),
     async function (req, res, next) {
       const { userMovieId } = req.params;
 
       try {
-        const deletedUserMovieId = await userMoviesService.deleteUserMovie({
+        const deletedUserMovieId = await userMoviesService.deleUserMovie({
           userMovieId
         });
         res.status(200).json({

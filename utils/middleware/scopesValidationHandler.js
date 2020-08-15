@@ -1,5 +1,9 @@
 const boom = require('@hapi/boom');
-
+/**
+ * allowedScopes es un array con elementos
+ * que recibe parametros similares a: 'read:movies'
+ * si no lo encuentra retorna un error
+ */
 function scopesValidationHandler(allowedScopes) {
   return function(req, res, next){
     if (!req.user || (req.user && !req.user.scopes)) {
